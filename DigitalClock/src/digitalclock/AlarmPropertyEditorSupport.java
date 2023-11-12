@@ -29,10 +29,11 @@ public class AlarmPropertyEditorSupport extends PropertyEditorSupport {
     @Override
     public String getJavaInitializationString() {
 
-        LocalDateTime datetime = ((Alarm) getValue()).getDateTime();
-        boolean active = ((Alarm) getValue()).isActive();
+        LocalDateTime datetime = alarmPanel.getSelectedValue().getDateTime();
+        boolean active = alarmPanel.getSelectedValue().isActive();
+        String message = alarmPanel.getSelectedValue().getMessage();
 
-        return "new digitalclock.Alarm(" + datetime + ", " + active + ")";
+        return "new digitalclock.Alarm(\"" + datetime + "\", " + active + ", \"" + message + "\")";
     }
 
     @Override

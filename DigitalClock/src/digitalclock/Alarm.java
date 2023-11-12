@@ -23,10 +23,12 @@ class Alarm implements Serializable {
      * Estado de la alarmtra, true si está activa
      */
     private boolean active;
+    private String message;
 
-    public Alarm(LocalDateTime dateTime, boolean isActive) {
+    public Alarm(LocalDateTime dateTime, boolean isActive, String message) {
         this.dateTime = dateTime;
         this.active = isActive;
+        this.message = message;
     }
 
     public LocalDateTime getDateTime() {
@@ -45,27 +47,11 @@ class Alarm implements Serializable {
         this.active = active;
     }
 
-    public boolean equals(Alarm other) {
-        if (this == other) {
-            return true;
-        }
-
-        if (other == null) {
-            return false;
-        }
-
-        if (getClass() != other.getClass()) {
-            return false;
-        }
-
-        boolean sameYear = this.getDateTime().getYear() == other.getDateTime().getYear();
-        boolean sameMonth = this.getDateTime().getMonth() == other.getDateTime().getMonth();
-        boolean sameDay = this.getDateTime().getDayOfMonth() == other.getDateTime().getDayOfMonth();
-        boolean sameHour = this.getDateTime().getHour() == other.getDateTime().getHour();
-        boolean sameMinute = this.getDateTime().getMinute() == other.getDateTime().getMinute();
-        boolean sameSecond = this.getDateTime().getSecond() == other.getDateTime().getSecond();
-
-        return sameYear && sameMonth && sameDay && sameHour && sameMinute && sameSecond;
+    public String getMessage() {
+        return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

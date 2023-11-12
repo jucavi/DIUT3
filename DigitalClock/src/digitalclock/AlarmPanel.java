@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package digitalclock;
 
@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Juan Carlos Vilarrubia
  */
-public class AlarmPanel extends javax.swing.JFrame {
+public class AlarmPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AlarmPanel
@@ -33,18 +33,18 @@ public class AlarmPanel extends javax.swing.JFrame {
         jLabelDateTime = new javax.swing.JLabel();
         jSpinnerDateTime = new javax.swing.JSpinner();
         jCheckBoxActive = new javax.swing.JCheckBox();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabelMessage = new javax.swing.JLabel();
+        jTextFieldMessage = new javax.swing.JTextField();
 
         jLabelDateTime.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabelDateTime.setText("Fije la fecha y la hora de la alarma");
         jLabelDateTime.setToolTipText("Etiqueta referente a la fecha y hora");
 
-        jSpinnerDateTime.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jSpinnerDateTime.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jSpinnerDateTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.MONTH));
         jSpinnerDateTime.setToolTipText("Elija la fecha y la hora de la alarma");
 
-        jCheckBoxActive.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jCheckBoxActive.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCheckBoxActive.setText("Activar");
         jCheckBoxActive.setToolTipText("Seleccione si la alarma está activa");
         jCheckBoxActive.addActionListener(new java.awt.event.ActionListener() {
@@ -53,88 +53,85 @@ public class AlarmPanel extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        jLabelMessage.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabelMessage.setText("Mensaje de la alarma");
+        jLabelMessage.setToolTipText("Etiqueta del campo de texto");
+
+        jTextFieldMessage.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextFieldMessage.setToolTipText("Ingrese el mensaje a mostrar cuando se lance la alarma");
+        jTextFieldMessage.setAlignmentY(0.0F);
+        jTextFieldMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMessageActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMessage)
                     .addComponent(jLabelDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSpinnerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSpinnerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBoxActive)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(jCheckBoxActive))
+                    .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(jLabelDateTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSpinnerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBoxActive))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelMessage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxActiveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxActiveActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlarmPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlarmPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlarmPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlarmPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AlarmPanel().setVisible(true);
-            }
-        });
-    }
+    private void jTextFieldMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMessageActionPerformed
 
     public Alarm getSelectedValue() {
 
         Date date = (Date) jSpinnerDateTime.getValue();
         LocalDateTime datetime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
-        System.out.println(datetime);
-        boolean active = jCheckBoxActive.isSelected();
 
-        return new Alarm(datetime, active);
+        boolean active = jCheckBoxActive.isSelected();
+        String message = jTextFieldMessage.getText();
+
+        if (datetime == null) {
+            datetime = LocalDateTime.now();
+        }
+
+        if (message != null && message.isBlank()) {
+            message = "Recordatorio en curso";
+        }
+
+//        return new Alarm(datetime, active);
+        return new Alarm(datetime, active, message);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBoxActive;
     private javax.swing.JLabel jLabelDateTime;
+    private javax.swing.JLabel jLabelMessage;
     private javax.swing.JSpinner jSpinnerDateTime;
+    private javax.swing.JTextField jTextFieldMessage;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,6 +15,7 @@ import javax.swing.JLabel;
  *
  * @author Juan Carlos Vilarrubia
  */
+@SuppressWarnings("serial")
 public class DigitalClock extends JLabel implements Serializable {
 
     private enum TimeStringFormat {
@@ -41,10 +42,11 @@ public class DigitalClock extends JLabel implements Serializable {
                 LocalDateTime currentDate = LocalDateTime.now();
                 setText(currentDate);
 
-                if (alarm != null) {
-
+                if (alarm != null && alarm.isActive() && checkTime(currentDate)) {
+                    if (checkTime(currentDate)) {
+                        System.out.println("Lanza alarma");
+                    }
                 }
-
             }
         }, 0, 1000);
 
@@ -72,6 +74,25 @@ public class DigitalClock extends JLabel implements Serializable {
         }
 
         setText(dtf.format(curentDate).toUpperCase());
+    }
+
+    /**
+     * Comprueba si la fecha y la hora pasadas como parámetro coinciden con la
+     * almacenada en la alarma
+     *
+     * @param currentDate fecha y hora
+     * @return {@code true} si la {@code currentDate == Alarm#getDateTime}
+     */
+    private boolean checkTime(LocalDateTime currentDate) {
+
+        boolean sameYear = currentDate.getYear() == alarm.getDateTime().getYear();
+        boolean sameMonth = currentDate.getMonth() == alarm.getDateTime().getMonth();
+        boolean sameDay = currentDate.getDayOfMonth() == alarm.getDateTime().getDayOfMonth();
+        boolean sameHour = currentDate.getHour() == alarm.getDateTime().getHour();
+        boolean sameMinute = currentDate.getMinute() == alarm.getDateTime().getMinute();
+        boolean sameSecond = currentDate.getSecond() == alarm.getDateTime().getSecond();
+
+        return sameYear && sameMonth && sameDay && sameHour && sameMinute && sameSecond;
     }
 
     public boolean isFormat24() {

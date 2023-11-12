@@ -95,7 +95,7 @@ public class AlarmPanel extends javax.swing.JPanel {
                 .addComponent(jLabelMessage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,20 +111,15 @@ public class AlarmPanel extends javax.swing.JPanel {
 
         Date date = (Date) jSpinnerDateTime.getValue();
         LocalDateTime datetime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
-
+        
         boolean active = jCheckBoxActive.isSelected();
         String message = jTextFieldMessage.getText();
 
-        if (datetime == null) {
-            datetime = LocalDateTime.now();
+        if (date != null) {
+            return new Alarm(datetime, active, message);
         }
 
-        if (message != null && message.isBlank()) {
-            message = "Recordatorio en curso";
-        }
-
-//        return new Alarm(datetime, active);
-        return new Alarm(datetime, active, message);
+        return null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -10,17 +10,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Juan Carlos Vilarrubia
  */
-@SuppressWarnings("serial")
 public class DigitalClock extends JLabel implements Serializable {
 
     private enum TimeStringFormat {
         H12("HH:mm:ss"),
-        H24("hh:mm:ss a");
+        H24("HH:mm:ss a");
 
         public final String label;
 
@@ -44,7 +44,7 @@ public class DigitalClock extends JLabel implements Serializable {
 
                 if (alarm != null && alarm.isActive() && checkTime(currentDate)) {
                     if (checkTime(currentDate)) {
-                        System.out.println("Lanza alarma");
+                        JOptionPane.showMessageDialog(DigitalClock.this, alarm.getMessage());
                     }
                 }
             }

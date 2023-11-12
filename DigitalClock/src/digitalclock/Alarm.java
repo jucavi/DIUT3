@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  *
  * @author Juan Carlos Vilarrubia
  */
-class Alarm implements Serializable {
+public class Alarm implements Serializable {
 
     /**
      * Fecha y hora de la alarma

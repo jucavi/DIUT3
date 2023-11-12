@@ -33,7 +33,17 @@ public class AlarmPropertyEditorSupport extends PropertyEditorSupport {
         boolean active = alarmPanel.getSelectedValue().isActive();
         String message = alarmPanel.getSelectedValue().getMessage();
 
-        return "new digitalclock.Alarm(\"" + datetime + "\", " + active + ", \"" + message + "\")";
+        return "new digitalclock.Alarm("
+                + "java.time.LocalDateTime.of("
+                + datetime.getYear() + ", "
+                + datetime.getMonthValue() + ", "
+                + datetime.getDayOfMonth() + ", "
+                + datetime.getHour() + ", "
+                + datetime.getMinute() + ", "
+                + datetime.getSecond() 
+                + "), "
+                + active + ", \"" 
+                + message + "\")";
     }
 
     @Override

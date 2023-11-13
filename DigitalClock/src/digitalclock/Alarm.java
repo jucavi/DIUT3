@@ -5,38 +5,50 @@
 package digitalclock;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
- * Clase que permite definir la fecha y la hora de una alarma así como su estado
- * de actividad
+ * Clase que permite definir la hora de una alarma, si esta activa o no y el
+ * mensaje asociado
  *
  * @author Juan Carlos Vilarrubia
  */
 public class Alarm implements Serializable {
 
     /**
-     * Fecha y hora de la alarma
+     * Hora de la alarma 0-24
      */
-    private LocalDateTime dateTime;
+    private int hour;
+    /**
+     * Minutos de la alarma 0-60
+     */
+    private int minute;
     /**
      * Estado de la alarmtra, true si está activa
      */
     private boolean active;
     private String message;
 
-    public Alarm(LocalDateTime dateTime, boolean isActive, String message) {
-        this.dateTime = dateTime;
-        this.active = isActive;
+    public Alarm(int hour, int minute, boolean active, String message) {
+        this.hour = hour;
+        this.minute = minute;
+        this.active = active;
         this.message = message;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public int getHour() {
+        return hour;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
     public boolean isActive() {

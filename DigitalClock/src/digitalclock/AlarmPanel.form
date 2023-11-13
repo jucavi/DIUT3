@@ -16,19 +16,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelMessage" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelDateTime" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jSpinnerDateTime" min="-2" pref="187" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxActive" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jTextFieldMessage" alignment="1" min="-2" pref="341" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelAlarmTime" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelMessage" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jLabelHour" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jSpinnerHour" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabelMinutes" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSpinnerMinutes" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxActive" pref="70" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="jTextFieldMessage" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -36,41 +52,47 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jLabelDateTime" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelAlarmTime" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jSpinnerDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinnerHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinnerMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCheckBoxActive" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelMessage" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldMessage" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="173" max="32767" attributes="0"/>
+              <EmptySpace pref="164" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelDateTime">
+    <Component class="javax.swing.JLabel" name="jLabelAlarmTime">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Fije la fecha y la hora de la alarma"/>
-        <Property name="toolTipText" type="java.lang.String" value="Etiqueta referente a la fecha y hora"/>
+        <Property name="text" type="java.lang.String" value="Fije la hora de la alarma"/>
+        <Property name="toolTipText" type="java.lang.String" value="Permite fijar la hora de la alarma y si esta activa o no"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinnerDateTime">
+    <Component class="javax.swing.JSpinner" name="jSpinnerHour">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="now" stepSize="2" type="date"/>
+          <SpinnerModel initial="0" maximum="24" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Elija la fecha y la hora de la alarma"/>
+        <Property name="toolTipText" type="java.lang.String" value="Permite fijar la hora de la alarma y si esta activa o no"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Elija la hora de la alarma"/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBoxActive">
       <Properties>
@@ -89,7 +111,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mensaje de la alarma"/>
+        <Property name="text" type="java.lang.String" value="Mensaje de alarma"/>
         <Property name="toolTipText" type="java.lang.String" value="Etiqueta del campo de texto"/>
       </Properties>
     </Component>
@@ -104,6 +126,34 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldMessageActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHour">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Hora"/>
+        <Property name="toolTipText" type="java.lang.String" value="Hora de la alarma"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelMinutes">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Minutos"/>
+        <Property name="toolTipText" type="java.lang.String" value="Minutos de la alarma"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jSpinnerMinutes">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="60" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

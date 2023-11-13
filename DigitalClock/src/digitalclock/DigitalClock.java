@@ -17,7 +17,10 @@ import javax.swing.JOptionPane;
  * @author Juan Carlos Vilarrubia
  */
 public class DigitalClock extends JLabel implements Serializable {
-
+    
+    /**
+     * Formato para representar la hora
+     */
     private enum TimeStringFormat {
         H12("HH:mm:ss"),
         H24("HH:mm:ss a");
@@ -30,11 +33,13 @@ public class DigitalClock extends JLabel implements Serializable {
     }
 
     private Alarm alarm;
+    private AlarmListener alarmlistener;
     private boolean format24 = false;
 
     public DigitalClock() {
 
         Timer timer = new Timer();
+        boolean launched = false;
 
         timer.schedule(new TimerTask() {
             @Override
@@ -43,8 +48,8 @@ public class DigitalClock extends JLabel implements Serializable {
                 setText(currentDate);
 
                 if (alarm != null && alarm.isActive() && checkTime(currentDate)) {
-                    if (checkTime(currentDate)) {
-                        JOptionPane.showMessageDialog(DigitalClock.this, alarm.getMessage());
+                    if (alarmlistener != null) {
+                        alarmlistener.launchAlarm();
                     }
                 }
             }
@@ -85,14 +90,14 @@ public class DigitalClock extends JLabel implements Serializable {
      */
     private boolean checkTime(LocalDateTime currentDate) {
 
-        boolean sameYear = currentDate.getYear() == alarm.getDateTime().getYear();
-        boolean sameMonth = currentDate.getMonth() == alarm.getDateTime().getMonth();
-        boolean sameDay = currentDate.getDayOfMonth() == alarm.getDateTime().getDayOfMonth();
-        boolean sameHour = currentDate.getHour() == alarm.getDateTime().getHour();
-        boolean sameMinute = currentDate.getMinute() == alarm.getDateTime().getMinute();
-        boolean sameSecond = currentDate.getSecond() == alarm.getDateTime().getSecond();
+        boolean sameHour = currentDate.getHour() == alarm.getHour();
+        boolean sameMinute = currentDate.getMinute() == alarm.getMinute();
 
-        return sameYear && sameMonth && sameDay && sameHour && sameMinute && sameSecond;
+        return sameHour && sameMinute && currentDate.getSecond() == 0;
+    }
+    
+    public void addAlarmListener(AlarmListener alarmListener) {
+        this.alarmlistener = alarmListener;
     }
 
     public boolean isFormat24() {

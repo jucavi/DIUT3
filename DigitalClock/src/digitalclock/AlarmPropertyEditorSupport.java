@@ -29,21 +29,16 @@ public class AlarmPropertyEditorSupport extends PropertyEditorSupport {
     @Override
     public String getJavaInitializationString() {
 
-        LocalDateTime datetime = alarmPanel.getSelectedValue().getDateTime();
+        int hour = alarmPanel.getSelectedValue().getHour();
+        int minute = alarmPanel.getSelectedValue().getMinute();
         boolean active = alarmPanel.getSelectedValue().isActive();
         String message = alarmPanel.getSelectedValue().getMessage();
 
         return "new digitalclock.Alarm("
-                + "java.time.LocalDateTime.of("
-                + datetime.getYear() + ", "
-                + datetime.getMonthValue() + ", "
-                + datetime.getDayOfMonth() + ", "
-                + datetime.getHour() + ", "
-                + datetime.getMinute() + ", "
-                + datetime.getSecond() 
-                + "), "
-                + active + ", \"" 
-                + message + "\")";
+                + hour + ", "
+                + minute + ", "
+                + active 
+                + ", \"" + message + "\")";
     }
 
     @Override

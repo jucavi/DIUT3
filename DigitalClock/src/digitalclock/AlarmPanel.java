@@ -4,10 +4,6 @@
  */
 package digitalclock;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-
 /**
  *
  * @author Juan Carlos Vilarrubia
@@ -30,19 +26,22 @@ public class AlarmPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelDateTime = new javax.swing.JLabel();
-        jSpinnerDateTime = new javax.swing.JSpinner();
+        jLabelAlarmTime = new javax.swing.JLabel();
+        jSpinnerHour = new javax.swing.JSpinner();
         jCheckBoxActive = new javax.swing.JCheckBox();
         jLabelMessage = new javax.swing.JLabel();
         jTextFieldMessage = new javax.swing.JTextField();
+        jLabelHour = new javax.swing.JLabel();
+        jLabelMinutes = new javax.swing.JLabel();
+        jSpinnerMinutes = new javax.swing.JSpinner();
 
-        jLabelDateTime.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelDateTime.setText("Fije la fecha y la hora de la alarma");
-        jLabelDateTime.setToolTipText("Etiqueta referente a la fecha y hora");
+        jLabelAlarmTime.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabelAlarmTime.setText("Fije la hora de la alarma");
+        jLabelAlarmTime.setToolTipText("Permite fijar la hora de la alarma y si esta activa o no");
 
-        jSpinnerDateTime.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jSpinnerDateTime.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.MONTH));
-        jSpinnerDateTime.setToolTipText("Elija la fecha y la hora de la alarma");
+        jSpinnerHour.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jSpinnerHour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
+        jSpinnerHour.setToolTipText("Permite fijar la hora de la alarma y si esta activa o no");
 
         jCheckBoxActive.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCheckBoxActive.setText("Activar");
@@ -54,7 +53,7 @@ public class AlarmPanel extends javax.swing.JPanel {
         });
 
         jLabelMessage.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabelMessage.setText("Mensaje de la alarma");
+        jLabelMessage.setText("Mensaje de alarma");
         jLabelMessage.setToolTipText("Etiqueta del campo de texto");
 
         jTextFieldMessage.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -66,37 +65,65 @@ public class AlarmPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabelHour.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelHour.setText("Hora");
+        jLabelHour.setToolTipText("Hora de la alarma");
+
+        jLabelMinutes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelMinutes.setText("Minutos");
+        jLabelMinutes.setToolTipText("Minutos de la alarma");
+
+        jSpinnerMinutes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jSpinnerMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMessage)
-                    .addComponent(jLabelDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSpinnerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBoxActive))
-                    .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelAlarmTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabelMessage)
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(jLabelHour)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jSpinnerHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabelMinutes)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSpinnerMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jCheckBoxActive, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))))
+                .addGap(162, 162, 162))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabelDateTime)
+                .addComponent(jLabelAlarmTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinnerDateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelHour)
+                    .addComponent(jSpinnerHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelMinutes)
+                    .addComponent(jSpinnerMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBoxActive))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelMessage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
+
+        jSpinnerHour.getAccessibleContext().setAccessibleDescription("Elija la hora de la alarma");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxActiveActionPerformed
@@ -109,24 +136,22 @@ public class AlarmPanel extends javax.swing.JPanel {
 
     public Alarm getSelectedValue() {
 
-        Date date = (Date) jSpinnerDateTime.getValue();
-        LocalDateTime datetime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
-        
+        int hour = (int) jSpinnerHour.getValue();
+        int minute = (int) jSpinnerMinutes.getValue();
         boolean active = jCheckBoxActive.isSelected();
         String message = jTextFieldMessage.getText();
 
-        if (date != null) {
-            return new Alarm(datetime, active, message);
-        }
-
-        return null;
+        return new Alarm(hour, minute, active, message);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckBoxActive;
-    private javax.swing.JLabel jLabelDateTime;
+    private javax.swing.JLabel jLabelAlarmTime;
+    private javax.swing.JLabel jLabelHour;
     private javax.swing.JLabel jLabelMessage;
-    private javax.swing.JSpinner jSpinnerDateTime;
+    private javax.swing.JLabel jLabelMinutes;
+    private javax.swing.JSpinner jSpinnerHour;
+    private javax.swing.JSpinner jSpinnerMinutes;
     private javax.swing.JTextField jTextFieldMessage;
     // End of variables declaration//GEN-END:variables
 }

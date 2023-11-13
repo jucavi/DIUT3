@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/AlarmPropertyEditorSupport.java</file>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/AlarmListener.java</file>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/Alarm.java</file>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/AlarmPanel.java</file>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/DigitalClock.java</file>
+            <file>file:/Users/kaos/DAM/Segundo/DI/DIUT3/DigitalClock/src/digitalclock/DigitalClockBeanInfo.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -8,7 +8,7 @@ import java.beans.*;
 
 /**
  *
- * @author Juan Carlos Vilarrubia
+ * @author kaos
  */
 public class DigitalClockBeanInfo extends SimpleBeanInfo {
 
@@ -926,5 +926,5 @@ public class DigitalClockBeanInfo extends SimpleBeanInfo {
                 return null;
         }
     }
-
+    
 }

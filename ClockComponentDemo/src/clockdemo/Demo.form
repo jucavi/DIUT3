@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Demo de componente DigitalClock"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jLabelClock24" pref="262" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="digitalClock24" pref="262" max="32767" attributes="0"/>
+                      <Component id="digitalClock12" alignment="0" pref="262" max="32767" attributes="0"/>
+                      <Component id="jLabelClock12" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="96" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Component id="jLabelClock24" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="digitalClock24" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="jLabelClock12" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="digitalClock12" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabelClock24">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="En formato 24H no seleccionado por defecto"/>
+      </Properties>
+    </Component>
+    <Component class="digitalclock.DigitalClock" name="digitalClock24">
+      <Properties>
+        <Property name="alarm" type="digitalclock.Alarm" editor="digitalclock.AlarmPropertyEditorSupport">
+          <SerializedValue value="-84,-19,0,5,115,114,0,18,100,105,103,105,116,97,108,99,108,111,99,107,46,65,108,97,114,109,-89,114,62,25,60,31,-46,114,2,0,4,90,0,6,97,99,116,105,118,101,73,0,4,104,111,117,114,73,0,6,109,105,110,117,116,101,76,0,7,109,101,115,115,97,103,101,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,120,112,1,0,0,0,12,0,0,0,34,116,0,29,65,108,97,114,109,97,32,103,101,110,101,114,97,100,97,32,112,111,114,32,114,101,108,111,106,32,50,52,72"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="36" style="0"/>
+        </Property>
+        <Property name="format24" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Reloj digital en formato 24H"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelClock12">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="En formato 12H por defecto"/>
+      </Properties>
+    </Component>
+    <Component class="digitalclock.DigitalClock" name="digitalClock12">
+      <Properties>
+        <Property name="alarm" type="digitalclock.Alarm" editor="digitalclock.AlarmPropertyEditorSupport">
+          <SerializedValue value="-84,-19,0,5,115,114,0,18,100,105,103,105,116,97,108,99,108,111,99,107,46,65,108,97,114,109,-89,114,62,25,60,31,-46,114,2,0,4,90,0,6,97,99,116,105,118,101,73,0,4,104,111,117,114,73,0,6,109,105,110,117,116,101,76,0,7,109,101,115,115,97,103,101,116,0,18,76,106,97,118,97,47,108,97,110,103,47,83,116,114,105,110,103,59,120,112,1,0,0,0,12,0,0,0,35,116,0,29,65,108,97,114,109,97,32,103,101,110,101,114,97,100,97,32,112,111,114,32,114,101,108,111,106,32,49,50,72"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="36" style="0"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Reloj digital en formato 12H"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
